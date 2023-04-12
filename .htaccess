@@ -1,0 +1,69 @@
+
+RewriteOptions inherit
+# Disable Directory Browsing
+Options All -Indexes
+
+errorDocument 400 /404.php
+errorDocument 401 /404.php
+errorDocument 500 /404.php
+
+<IfModule mod_headers.c>
+    Header set Strict-Transport-Security max-age=16070400;
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Options -MultiViews
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ #FallbackResource /404.php
+ ErrorDocument 404 /404.php
+ 
+ lsapi_phpini /home/afriuvkf/afriburn.ng/php.ini
+
+RewriteCond %{HTTP_REFERER} !^http://account.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://account.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afriburn.afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afriburn.afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afrimoviebox.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://afrimoviebox.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.account.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.account.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afriburn.afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afriburn.afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afrimoviebox.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.afrimoviebox.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://account.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://account.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afriburn.afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afriburn.afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afrimoviebox.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://afrimoviebox.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.account.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.account.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afriburn.afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afriburn.afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afriburn.ng$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afriburn.website/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afriburn.website$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afrimoviebox.afriburn.ng/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.afrimoviebox.afriburn.ng$      [NC]
+RewriteRule .*\.()$ https://afrimoviebox.afriburn.ng [R,NC]
